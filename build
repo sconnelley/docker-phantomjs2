@@ -1,0 +1,20 @@
+set -e
+
+if [ -z "${VERSION:+1}" ]; then
+    VERSION=master
+fi
+
+cd /home
+git clone git://github.com/ariya/phantomjs.git
+cd phantomjs
+./build.sh --confirm
+
+# compress
+cd /bin
+tar zcf phantomjs-$VERSION-lucid.tar.gz .
+
+# Upload to s3
+if [ -n "${AWS_ACCESS_KEY_ID:+1}" ]; then
+    echo "Sending to S3 bucket."
+    aws s3 cp phantomjs-$VERSION-lucid.tar.gz $BUCKET
+fi
