@@ -9,7 +9,7 @@ export DOCKER_HOST=tcp://192.168.59.103:2375
 
 I also had increase the memory and disk size of the image in the `boot2docker` config profile, see [Boot2Docker CLI](https://github.com/boot2docker/boot2docker-cli) on how to update profile.
 
-[boot2docker-profile-example.txt]('boot2docker-profile-example.txt') is the profile I ended up using.
+[boot2docker-profile-example.txt](boot2docker-profile-example.txt) is the profile I ended up using.
 
 ## Build
 
